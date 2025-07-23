@@ -12,6 +12,13 @@ app = Flask(__name__)
 
 local_llm = "neural-chat-7b-v3-1.Q4_K_M.gguf"
 
+# Check if model file exists
+if not os.path.exists(local_llm):
+    print(f"Error: Model file '{local_llm}' not found!")
+    print("Please run 'python setup.py' to download the model, or download it manually from:")
+    print("https://huggingface.co/TheBloke/neural-chat-7B-v3-1-GGUF/resolve/main/neural-chat-7b-v3-1.Q4_K_M.gguf")
+    exit(1)
+
 config = {
     'max_new_tokens': 1024,
     'repetition_penalty': 1.1,
@@ -51,7 +58,7 @@ embeddings = HuggingFaceBgeEmbeddings(
 )
 
 prompt = PromptTemplate(template=prompt_template,
-                        input_variable=['context', 'question'])
+                        input_variables=['context', 'question'])
 load_vector_store = Chroma(
     persist_directory="stores/medical_cosine", embedding_function=embeddings)
 retriever = load_vector_store.as_retriever(search_kwargs={"k": 1})

@@ -15,9 +15,54 @@ Our solution leverages Intel's Neural Chat LLM for local inference on CPU, makin
 - **Langchain & CTransformers:** Frameworks used for orchestration.
 
 ## Getting Started
-###link to the model: https://huggingface.co/TheBloke/neural-chat-7B-v3-1-GGUF/blob/main/neural-chat-7b-v3-1.Q4_K_M.gguf
-Please make sure to download the model from this website and place it in the directory.
+
+### Quick Setup (Recommended)
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/Aditya19110/Team_Sentinals_Unnati-2024
+   cd Team_Sentinals_Unnati-2024
+   ```
+
+2. **Run the Setup Script:**
+   ```bash
+   python setup.py
+   ```
+   This will help download the required LLM model automatically.
+
+3. **Create a Virtual Environment:**
+   ```bash
+   python -m venv venv
+   ```
+
+4. **Activate the Virtual Environment:**
+   - On Windows:
+     ```bash
+     venv\Scripts\activate
+     ```
+   - On macOS/Linux:
+     ```bash
+     source venv/bin/activate
+     ```
+
+5. **Install Dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+### Manual Setup
+If you prefer to download the model manually:
+
+**Download the LLM Model:**
+Download the neural-chat-7b-v3-1.Q4_K_M.gguf model from: 
+https://huggingface.co/TheBloke/neural-chat-7B-v3-1-GGUF/resolve/main/neural-chat-7b-v3-1.Q4_K_M.gguf
+
+Place the downloaded model file in the project root directory.
 ### Prerequisites
+- Python 3.8 or higher
+- At least 8GB RAM (recommended for running the LLM)
+- 5GB free disk space (for the model file)
+
+### Setup Instructions
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/Aditya19110/Team_Sentinals_Unnati-2024
