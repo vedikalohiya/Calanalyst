@@ -12,7 +12,6 @@ app = Flask(__name__)
 
 local_llm = "neural-chat-7b-v3-1.Q4_K_M.gguf"
 
-# Check if model file exists
 if not os.path.exists(local_llm):
     print(f"Error: Model file '{local_llm}' not found!")
     print("Please run 'python setup.py' to download the model, or download it manually from:")

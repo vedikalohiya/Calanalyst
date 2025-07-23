@@ -5,13 +5,11 @@ from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.document_loaders import DirectoryLoader
 
-# Check if Data directory exists
 if not os.path.exists('Data/'):
     print("Error: 'Data/' directory not found!")
     print("Please make sure the Data directory exists and contains PDF files.")
     exit(1)
 
-# Check if there are any PDF files
 pdf_files = []
 for root, dirs, files in os.walk('Data/'):
     for file in files:

@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """
 Setup script for CancerCareBot project.
 This script will help download the required LLM model and set up dependencies.
@@ -32,13 +31,9 @@ def download_model():
 
 def main():
     print("Setting up CancerCareBot...")
-    
-    # Check if we're in the right directory
     if not os.path.exists("app.py"):
         print("Error: Please run this script from the project root directory.")
         sys.exit(1)
-    
-    # Download model
     download_model()
     
     print("\nSetup complete!")
