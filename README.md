@@ -1,134 +1,108 @@
-# Team Sentinals: CancerCare Chatbot
+# CancerCare Bot
 
-Welcome to the official repository of **Team Sentinals** from **MGMs College of Engineering, Nanded**! We are excited to present our chatbot designed to answer basic questions related to cancer. Our chatbot provides accurate and concise responses to your inquiries.
+![Project Version](https://img.shields.io/badge/version-2.0.0-blue.svg?style=flat-square)
+![Python](https://img.shields.io/badge/python-3.8%2B-yellow.svg?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)
 
-## Problem Statement
-**"Introduction to GenAI and Simple LLM Inference on CPU and finetuning of LLM Model to create a Custom Chatbot"**
+> **A privacy-first, CPU-optimized AI assistant for cancer-related information, powered by Intel's Neural Chat LLM.**
 
-## Project Overview
-Our solution leverages Intel's Neural Chat LLM for local inference on CPU, making it highly accessible and efficient without requiring GPU resources. The chatbot ingests data from PDF files, converts the text into embeddings using BGE Embeddings, and implements Retrieval-Augmented Generation (RAG) using an open-source stack.
+---
 
-### Key Components
-- **Intel's Neural Chat LLM:** Chosen for its capability to run independently on CPUs.
-- **BGE Embeddings:** Utilized for text embedding.
-- **Chroma DB:** Serves as the vector store.
-- **Langchain & CTransformers:** Frameworks used for orchestration.
+## Overview
+
+**CancerCare Bot** is a personal AI project developed collaboratively by **Aditya Kulkarni**, **Rasika Rakhewar**, and **Vedika Lohiya**. Our goal was to build a state-of-the-art chatbot that provides accurate, concise, and helpful answers to cancer-related queries using Retrieval-Augmented Generation (RAG) technology.
+
+Designed with accessibility in mind, this project demonstrates how powerful AI applications can be optimized to run **locally on standard CPUs**, ensuring data privacy without the need for expensive GPU hardware.
+
+### Key Features
+
+-   **Intel Neural Chat LLM**: High-performance 7B parameter model optimized for Intel CPUs.
+-   **Privacy First**: All data processing and inference happen locally on your machine.
+-   **RAG Technology**: Uses personal/medical documents (PDFs) to provide context-aware answers.
+-   **Glassmorphism UI**: A beautiful, modern, and responsive interface designed from scratch.
+-   **CPU Optimized**: Runs efficiently on standard hardware (8GB+ RAM recommended).
+
+---
+
+## Architecture
+
+The system uses a modern open-source stack:
+
+-   **LLM**: `neural-chat-7b-v3-1.Q4_K_M.gguf` (Quantized for CPU)
+-   **Embeddings**: `BAAI/bge-large-en`
+-   **Vector Store**: Chroma DB
+-   **Orchestration**: LangChain & CTransformers
+-   **Backend**: Flask (Python)
+-   **Frontend**: HTML5, CSS3 (Glassmorphism), Vanilla JS
+
+---
 
 ## Getting Started
 
-### Quick Setup (Recommended)
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/Aditya19110/Team_Sentinals_Unnati-2024
-   cd Team_Sentinals_Unnati-2024
-   ```
-
-2. **Run the Setup Script:**
-   ```bash
-   python setup.py
-   ```
-   This will help download the required LLM model automatically.
-
-3. **Create a Virtual Environment:**
-   ```bash
-   python -m venv venv
-   ```
-
-4. **Activate the Virtual Environment:**
-   - On Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
-
-5. **Install Dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-### Manual Setup
-If you prefer to download the model manually:
-
-**Download the LLM Model:**
-Download the neural-chat-7b-v3-1.Q4_K_M.gguf model from: 
-https://huggingface.co/TheBloke/neural-chat-7B-v3-1-GGUF/resolve/main/neural-chat-7b-v3-1.Q4_K_M.gguf
-
-Place the downloaded model file in the project root directory.
 ### Prerequisites
-- Python 3.8 or higher
-- At least 8GB RAM (recommended for running the LLM)
-- 5GB free disk space (for the model file)
 
-### Setup Instructions
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/Aditya19110/Team_Sentinals_Unnati-2024
-   cd Team_Sentinals_Unnati-2024
-   ```
+-   Python 3.8 or higher
+-   8GB RAM (Minimum)
+-   5GB Disk Space (for the model)
 
-2. **Create a Virtual Environment:**
-   ```bash
-   python -m venv venv
-   ```
+### Installation
 
-3. **Activate the Virtual Environment:**
-   - On Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
+1.  **Clone the Repository**
+    ```bash
+    git clone https://github.com/Aditya19110/Team_Sentinals_Unnati-2024
+    cd Team_Sentinals_Unnati-2024
+    ```
 
-4. **Install Dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
+2.  **Run Setup Script** (Downloads the LLM automatically)
+    ```bash
+    python setup.py
+    ```
 
-5. **Additional Dependency:**
-   ```bash
-   pip install protobuf==3.20.0
-   ```
+3.  **Create Virtual Environment**
+    ```bash
+    python -m venv venv
+    # Windows
+    venv\Scripts\activate
+    # macOS/Linux
+    source venv/bin/activate
+    ```
 
-### Download the LLM
-Due to space constraints, the LLM is not included in this repository. Please download the Intel Neural Chat LLM from [Hugging Face](https://huggingface.co/TheBloke/neural-chat-7B-v3-1-GGUF/blob/main/neural-chat-7b-v3-1.Q4_K_M.gguf) and place it in the appropriate directory.
+4.  **Install Dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-### Data Preparation
-Convert the data to embeddings by running:
-```bash
-python ingest.py
-```
-*Note: This process might take some time as it converts the data into embeddings.*
+5.  **Ingest Data** (Process PDF documents)
+    ```bash
+    # Place your PDFs in the 'Data/' folder first!
+    python ingest.py
+    ```
 
-### Running the Chatbot
-Start the Flask application:
+### Running the App
+
 ```bash
 python app.py
 ```
+Open your browser and navigate to: [http://localhost:5001](http://localhost:5001)
 
-Visit the provided URL in your browser to interact with the chatbot and ask any cancer-related questions.
-All the documents(pdfs) and ppts are uploaded here...
+---
 
-## Conclusion
-Thank you for exploring our project! We hope our chatbot provides valuable assistance in answering your cancer-related queries.
+## Developers
 
-## Team Members
+| Name | Role | Contact |
+| :--- | :--- | :--- |
+| **Aditya Kulkarni** | Full Stack Developer | [LinkedIn](https://www.linkedin.com/in/aditya191103) |
+| **Rasika Rakhewar** | AI Researcher & Developer | [LinkedIn](https://www.linkedin.com/in/rasika-rakhewar-2a5158256/) |
+| **Vedika Lohiya** | AI & LLM Specialist | [LinkedIn](https://www.linkedin.com/in/vedika2203) |
 
-| Name               | LinkedIn | Email                    |
-|--------------------|----------|--------------------------|
-| Aditya Kulkarni    | [<img src="https://img.icons8.com/fluent/48/000000/linkedin.png"/>](https://www.linkedin.com/in/aditya191103) | [<img src="https://img.icons8.com/fluent/48/000000/email.png"/>](mailto:kulkarniaditya262@gmail.com) |
-| Kashish Aswani     | [<img src="https://img.icons8.com/fluent/48/000000/linkedin.png"/>](https://www.linkedin.com/in/kashish-aswani-1780a2259/) | [<img src="https://img.icons8.com/fluent/48/000000/email.png"/>](mailto:kashishaswani18@gmail.com) |
-| Rasika Rakhewar    | [<img src="https://img.icons8.com/fluent/48/000000/linkedin.png"/>](https://www.linkedin.com/in/rasika-rakhewar-2a5158256/) | [<img src="https://img.icons8.com/fluent/48/000000/email.png"/>](mailto:rasikarakhewar3010@gmail.com) |
-| Nagesh Ballurkar   | [<img src="https://img.icons8.com/fluent/48/000000/linkedin.png"/>](https://www.linkedin.com/in/nagesh-ballurkar-9362a12b7/) | [<img src="https://img.icons8.com/fluent/48/000000/email.png"/>](mailto:nageshballurkar2003@gmail.com) |
-| Pallavi Lagludkar | [<img src="https://img.icons8.com/fluent/48/000000/linkedin.png"/>](https://www.linkedin.com/in/pallavi-lagludkar-321184259) | [<img src="https://img.icons8.com/fluent/48/000000/email.png"/>](mailto:Pallavilgdutkar@gmail.com) |
+---
 
-## Our Mentor
+## License
 
-| Name               | LinkedIn | Email                    |
-|--------------------|----------|--------------------------|
-| Mr. Shivprasad Titare   | [<img src="https://img.icons8.com/fluent/48/000000/linkedin.png"/>](https://www.linkedin.com/in/shivprasad-titare-11668825/) | [<img src="https://img.icons8.com/fluent/48/000000/email.png"/>](mailto:titare_si@mgmcen.ac.in) |
+This project is licensed under the MIT License - see the LICENSE file for details.
 
+---
+
+<p align="center">
+  Built with ❤️ for the AI community
+</p>
