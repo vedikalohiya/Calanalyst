@@ -26,14 +26,26 @@ Designed with accessibility in mind, this project demonstrates how powerful AI a
 
 ## Architecture
 
-The system uses a modern open-source stack:
+The CancerCare Bot operates on a sophisticated **Retrieval-Augmented Generation (RAG)** pipeline designed for offline efficiency. Here's how the components interact:
 
--   **LLM**: `neural-chat-7b-v3-1.Q4_K_M.gguf` (Quantized for CPU)
--   **Embeddings**: `BAAI/bge-large-en`
--   **Vector Store**: Chroma DB
--   **Orchestration**: LangChain & CTransformers
--   **Backend**: Flask (Python)
--   **Frontend**: HTML5, CSS3 (Glassmorphism), Vanilla JS
+### 1. Data Ingestion & Embedding
+-   **Source Documents**: Medical PDFs are loaded from the `Data/` directory.
+-   **Chunking**: Documents are split into manageable chunks using `RecursiveCharacterTextSplitter`.
+-   **Embedding**: Each chunk is converted into a vector representation using the **BAAI/bge-large-en** model. This captures the semantic meaning of the text.
+-   **Vector Store**: These vectors are stored locally in **Chroma DB**, enabling lightning-fast similarity search.
+
+### 2. Retrieval System
+-   **User Query**: When a user asks a question, it is also converted into a vector embedding.
+-   **Semantic Search**: The system queries Chroma DB to find the most relevant document chunks that match the user's intent, not just keywords.
+
+### 3. Generative AI (LLM)
+-   **Context Injection**: The retrieved information is combined with the user's original question into a structured prompt.
+-   **Inference**: This prompt is fed into the **Intel Neural Chat 7B** model.
+-   **Response**: The LLM generates a medically accurate, natural language response based *solely* on the provided context, minimizing hallucinations.
+
+### 4. Application Layer
+-   **Flask Backend**: Orchestrates the entire flow and serves the API.
+-   **Frontend**: A responsive Glassmorphism UI provides an engaging user experience, communicating with the backend via asynchronous JavaScript fetch calls.
 
 ---
 
@@ -49,8 +61,8 @@ The system uses a modern open-source stack:
 
 1.  **Clone the Repository**
     ```bash
-    git clone https://github.com/Aditya19110/Team_Sentinals_Unnati-2024
-    cd Team_Sentinals_Unnati-2024
+    git clone https://github.com/Aditya19110/Calanalyst
+    cd Calanalyst
     ```
 
 2.  **Run Setup Script** (Downloads the LLM automatically)
