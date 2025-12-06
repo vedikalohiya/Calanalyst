@@ -92,8 +92,9 @@ Open your browser and navigate to: [http://localhost:5001](http://localhost:5001
 | Name | Role | Contact |
 | :--- | :--- | :--- |
 | **Aditya Kulkarni** | Full Stack Developer | [LinkedIn](https://www.linkedin.com/in/aditya191103) |
-| **Rasika Rakhewar** | AI Researcher & Developer | [LinkedIn](https://www.linkedin.com/in/rasika-rakhewar-2a5158256/) |
 | **Vedika Lohiya** | AI & LLM Specialist | [LinkedIn](https://www.linkedin.com/in/vedika2203) |
+| **Rasika Rakhewar** | AI Researcher & Developer | [LinkedIn](https://www.linkedin.com/in/rasika-rakhewar-2a5158256/) |
+
 
 ---
 
