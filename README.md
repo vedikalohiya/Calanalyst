@@ -10,7 +10,7 @@
 
 ## Overview
 
-**CancerCare Bot** is a personal AI project developed collaboratively by **Aditya Kulkarni**, **Rasika Rakhewar**, and **Vedika Lohiya**. Our goal was to build a state-of-the-art chatbot that provides accurate, concise, and helpful answers to cancer-related queries using Retrieval-Augmented Generation (RAG) technology.
+**CancerCare Bot** is a personal AI project developed collaboratively by **Vedika Lohiya**. Our goal was to build a state-of-the-art chatbot that provides accurate, concise, and helpful answers to cancer-related queries using Retrieval-Augmented Generation (RAG) technology.
 
 Designed with accessibility in mind, this project demonstrates how powerful AI applications can be optimized to run **locally on standard CPUs**, ensuring data privacy without the need for expensive GPU hardware.
 
@@ -97,18 +97,6 @@ python app.py
 ```
 Open your browser and navigate to: [http://localhost:5001](http://localhost:5001)
 
----
-
-## Developers
-
-| Name | Role | Contact |
-| :--- | :--- | :--- |
-| **Aditya Kulkarni** | Full Stack Developer | [LinkedIn](https://www.linkedin.com/in/aditya191103) |
-| **Vedika Lohiya** | AI & LLM Specialist | [LinkedIn](https://www.linkedin.com/in/vedika2203) |
-| **Rasika Rakhewar** | AI Researcher & Developer | [LinkedIn](https://www.linkedin.com/in/rasika-rakhewar-2a5158256/) |
-
-
----
 
 ## License
 
